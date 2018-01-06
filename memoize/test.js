@@ -27,5 +27,13 @@ describe('memoize', function() {
 
   });
 
+  it('returns correct result', function() {
+    var fib = memoize(function(n) {
+      if (n < 2) return n;
+      return fib(n - 1) + fib(n - 2);
+    });
+    assert.equal(fib(10), 55);
+  });
+
 
 });
